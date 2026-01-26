@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="\JustStreamIt\index.css" rel="stylesheet" media="all" type="text/css">  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustStreamIt</title>
+</head>
+<body>
+    <h1></h1>
+    <script>
+        fetch('http://localhost:8000/api/v1/titles/')
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Erreur:', error));
+    </script>
+</body>
+</html>
