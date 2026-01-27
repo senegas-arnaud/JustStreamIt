@@ -7,12 +7,29 @@
     <title>JustStreamIt</title>
 </head>
 <body>
-    <h1></h1>
+    <header class="bg-gray-500 py-5 px-12 relative flex items-center justify-between">
+        <div class="flex items-center">
+            <img src="img/juststreamit_logo.png" alt="Logo" class="h-20 w-20 object-cover">
+        </div>
+
+        <h1 class="absolute left-1/2 transform -translate-x-1/2 text-4xl font-bold text-white">
+            Vidéos à la demande
+        </h1>
+    </header>
+
     <script>
-        fetch('http://localhost:8000/api/v1/titles/')
+        fetch('http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&page_size=1')
             .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.error('Erreur:', error));
+            .then(data => {
+                const bestMovie_id = data.results[0].id;
+                return fetch(`http://localhost:8000/api/v1/titles/${bestMovie_id}`);
+            })
+            .then(response => response.json())
+            .then(movie => {
+                console.log(movie);
+            })
+            .catch(error => console.error(error));
     </script>
 </body>
 </html>
+
