@@ -7,15 +7,103 @@
     <title>JustStreamIt</title>
 </head>
 <body>
-    <header class="bg-gray-500 py-5 px-12 relative flex items-center justify-between">
+    <header class="bg-gray-500 py-5 px-12 m-5 relative flex items-center justify-between rounded-lg">
         <div class="flex items-center">
             <img src="img/juststreamit_logo.png" alt="Logo" class="h-20 w-20 object-cover">
         </div>
 
-        <h1 class="absolute left-1/2 transform -translate-x-1/2 text-4xl font-bold text-white">
+        <h1 class="absolute left-1/2 transform -translate-x-1/2 text-4xl  text-white">
             Vidéos à la demande
         </h1>
     </header>
+    
+
+    <section class="border border-black rounded-lg m-5 px-5 py-2 ">
+    <h1 class="text-4xl  text-white text-center mb-6 bg-black rounded-lg">Meilleur film</h1>
+    
+    <div class="flex items-center gap-6">
+        
+        <img id="movie-image" src="" class="w-48 h-auto rounded-lg cursor-pointer" alt="Poster du film">
+        
+        <div class="flex flex-col flex-1 items-center">
+            <h2 id="movie-title" class="text-4xl  text-back mb-4">Chargement...</h2>
+            <p id="movie-description" class="text-gray-500">Description...</p>
+        </div>
+        
+        <button id="btn-details" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full ">
+            Détails
+        </button>     
+    </div>
+    </section>
+    <div id="modal" class="hidden fixed inset-0 flex bg-black bg-opacity-80 items-center justify-center">
+        <div class="bg-white rounded-lg max-w-4xl w-full mx-4 max-h-screen overflow-y-auto border border-black">
+            
+            <div class="sticky top-0 bg-black p-4 flex items-center rounded-lg m-2">
+                <h2 id="modal-title" class="absolute left-1/2 -translate-x-1/2 text-3xl  text-white">Titre du film</h2>
+                <button id="close-modal" class="ml-auto text-red-500 text-4xl hover:text-red-800 transition-colors">&times;</button>
+            </div>
+            
+            <div class="px-20 py-5">
+                <div class="flex gap-5">
+                    
+                    <div class="flex">
+                        <div id="modal-poster" class="w-80 h-full bg-gray-800 rounded-lg flex items-center justify-center p-4">
+                            <img id="modal-image" class="w-full h-full object-cover rounded-lg" src="" alt="Poster du film">
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 text-black p-3 rounded-lg border border-black ">
+                        
+                        <div class="mb-3">
+                            <p class="text-yellow-400  text-2xl text-center">⭐ <span id="modal-score">/10</span></p>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <span class=" text-gray-400">Genre(s) :</span>
+                            <span id="modal-genres" class=" text-black">-</span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <span class=" text-gray-400">Date de sortie :</span>
+                            <span id="modal-date" class="text-black">-</span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <span class=" text-gray-400">Réalisateur(s) :</span>
+                            <span id="modal-directors" class="text-black">-</span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <span class=" text-gray-400">Acteurs :</span>
+                            <span id="modal-actors" class="text-black">-</span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <span class=" text-gray-400">Durée :</span>
+                            <span id="modal-duration" class="text-black">-</span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <span class=" text-gray-400">Pays d'origine :</span>
+                            <span id="modal-countries" class="text-black">-</span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <span class=" text-gray-400">Box Office :</span>
+                            <span id="modal-boxoffice" class="text-black">-</span>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="mt-6 border border-black rounded-lg p-3">
+                    <h3 class=" text-gray-400 mb-2 ">Résumé :</h3>
+                    <p id="modal-description" class="text-black leading-relaxed">-</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
 
     <script>
         fetch('http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&page_size=1')
@@ -26,9 +114,51 @@
             })
             .then(response => response.json())
             .then(movie => {
-                console.log(movie);
+                document.getElementById('movie-title').textContent = movie.title;
+                document.getElementById('movie-image').src = movie.image_url;
+                document.getElementById('movie-description').textContent = movie.description;
+
+                const openElements = [
+                    document.getElementById('btn-details'),
+                    document.getElementById('movie-image')
+                ];
+
+                openElements.forEach(el => {
+                    el.addEventListener('click', () => openModal(movie));
+                });
             })
             .catch(error => console.error(error));
+
+        function openModal(movie) {
+            currentMovie = movie;
+
+            document.getElementById('modal-image').src = movie.image_url;
+            document.getElementById('modal-title').textContent = movie.title;
+            document.getElementById('modal-genres').textContent = movie.genres;
+            document.getElementById('modal-date').textContent = movie.date_published;
+            document.getElementById('modal-score').textContent = `${movie.imdb_score}/10`;
+            document.getElementById('modal-directors').textContent = movie.directors;
+            document.getElementById('modal-actors').textContent = movie.actors;
+            document.getElementById('modal-duration').textContent = `${movie.duration} minutes`;
+            document.getElementById('modal-countries').textContent = movie.countries;
+            document.getElementById('modal-boxoffice').textContent = `${movie.worldwide_gross_income} $`;
+            document.getElementById('modal-description').textContent = movie.description;
+            
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+        }
+
+        document.getElementById('close-modal').addEventListener('click', closeModal);
+
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
     </script>
 </body>
 </html>
