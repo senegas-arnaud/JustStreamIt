@@ -19,22 +19,184 @@
     
 
     <section class="border border-black rounded-lg m-5 px-5 py-2 ">
-    <h1 class="text-4xl  text-white text-center mb-6 bg-black rounded-lg">Meilleur film</h1>
-    
-    <div class="flex items-center gap-6">
+        <h1 class="text-4xl  text-white text-center mb-6 bg-black rounded-lg">Meilleur film</h1>
         
-        <img id="movie-image" src="" class="w-48 h-auto rounded-lg cursor-pointer" alt="Poster du film">
-        
-        <div class="flex flex-col flex-1 items-center">
-            <h2 id="movie-title" class="text-4xl  text-back mb-4">Chargement...</h2>
-            <p id="movie-description" class="text-gray-500">Description...</p>
+        <div class="flex items-center gap-6">
+            
+            <img id="movie-image" src="" class="w-64 h-96 rounded-lg object-fill cursor-pointer border border-black mb-5" alt="Poster du film">
+            
+            <div class="flex flex-col flex-1 items-center border border-black rounded-lg">
+                <h2 id="movie-title" class="text-4xl  text-back mb-4">Chargement...</h2>
+                <p class="text-yellow-400  text-2xl text-center">⭐ <span id="movie-score">/10</span></p>
+                <p id="movie-description" class="text-gray-500">Description...</p>
+            </div>
+            
+            <button id="btn-details" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full ">
+                Détails
+            </button>     
         </div>
-        
-        <button id="btn-details" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full ">
-            Détails
-        </button>     
-    </div>
     </section>
+
+    <section class="border border-black rounded-lg m-5 px-5 py-2 ">
+        <h1 class="text-4xl  text-white text-center mb-5 bg-black rounded-lg">Films les mieux noté</h1>
+        <div id="top-rated-movie" class="flex gap-14 px-14 py-5">
+    
+            <div class="relative w-64 h-96">
+                <img src="img/juststreamit_logo.png" class="w-full h-full object-fill rounded-lg border border-black">
+                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
+
+                    <h2 class="text-xl text-white mr-32">
+                        Film 1
+                    </h2>
+
+                    <button
+                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                        Détails
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative w-64 h-96">
+                <img src="img/juststreamit_logo.png" class="w-full h-full object-fill rounded-lg border border-black">
+                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
+
+                    <h2 class="text-xl text-white mr-32">
+                        Film 2
+                    </h2>
+
+                    <button
+                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                        Détails
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative w-64 h-96">
+                <img src="img/juststreamit_logo.png" class="w-full h-full object-fill rounded-lg border border-black">
+                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
+
+                    <h2 class="text-xl text-white mr-32">
+                        Film 3
+                    </h2>
+
+                    <button
+                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                        Détails
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative w-64 h-96">
+                <img src="img/juststreamit_logo.png" class="w-full h-full object-fill rounded-lg border border-black">
+                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
+
+                    <h2 class="text-xl text-white mr-32">
+                        Film 4
+                    </h2>
+
+                    <button
+                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                        Détails
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative w-64 h-96">
+                <img src="img/juststreamit_logo.png" class="w-full h-full object-fill rounded-lg border border-black">
+                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
+
+                    <h2 class="text-xl text-white mr-32">
+                        Film 5
+                    </h2>
+
+                    <button
+                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                        Détails
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div id="top-rated-movie" class="flex gap-14 px-14 py-5">
+    
+            <div class="relative w-64 h-96">
+                <img src="img/juststreamit_logo.png" class="w-full h-full object-fill rounded-lg border border-black">
+                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
+
+                    <h2 class="text-xl text-white mr-32">
+                        Film 6
+                    </h2>
+
+                    <button
+                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                        Détails
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative w-64 h-96">
+                <img src="img/juststreamit_logo.png" class="w-full h-full object-fill rounded-lg border border-black">
+                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
+
+                    <h2 class="text-xl text-white mr-32">
+                        Film 7
+                    </h2>
+
+                    <button
+                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                        Détails
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative w-64 h-96">
+                <img src="img/juststreamit_logo.png" class="w-full h-full object-fill rounded-lg border border-black">
+                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
+
+                    <h2 class="text-xl text-white mr-32">
+                        Film 8
+                    </h2>
+
+                    <button
+                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                        Détails
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative w-64 h-96">
+                <img src="img/juststreamit_logo.png" class="w-full h-full object-fill rounded-lg border border-black">
+                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
+
+                    <h2 class="text-xl text-white mr-32">
+                        Film 9
+                    </h2>
+
+                    <button
+                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                        Détails
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative w-64 h-96">
+                <img src="img/juststreamit_logo.png" class="w-full h-full object-fill rounded-lg border border-black">
+                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
+
+                    <h2 class="text-xl text-white mr-32">
+                        Film 10
+                    </h2>
+
+                    <button
+                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                        Détails
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <div id="modal" class="hidden fixed inset-0 flex bg-black bg-opacity-80 items-center justify-center">
         <div class="bg-white rounded-lg max-w-4xl w-full mx-4 max-h-screen overflow-y-auto border border-black">
             
@@ -117,6 +279,7 @@
                 document.getElementById('movie-title').textContent = movie.title;
                 document.getElementById('movie-image').src = movie.image_url;
                 document.getElementById('movie-description').textContent = movie.description;
+                document.getElementById('movie-score').textContent = `${movie.imdb_score}/10`;
 
                 const openElements = [
                     document.getElementById('btn-details'),
