@@ -6,190 +6,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JustStreamIt</title>
 </head>
-<body onload="">
+<body class="bg-zinc-800">
 
-    <header class="bg-gray-500 py-5 px-12 m-5 relative flex items-center justify-between rounded-lg">
-        <div class="flex items-center">
-            <img src="img/juststreamit_logo.png" alt="Logo" class="h-20 w-20 object-cover">
+    <header class="bg-white py-3 md:py-5 px-4 md:px-12 m-2 md:m-5 relative flex flex-col md:flex-row items-center justify-between rounded-lg border-yellow-400 border-2">
+        <div class="flex items-center mb-3 md:mb-0">
+            <img src="img/juststreamit_logo.png" alt="Logo" class="h-12 w-12 md:h-20 md:w-20 object-cover">
         </div>
 
-        <h1 class="absolute left-1/2 transform -translate-x-1/2 text-4xl  text-white">
+        <h1 class="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 text-black text-2xl md:text-4xl lg:text-6xl text-center">
             Vidéos à la demande
         </h1>
     </header>
     
 
-    <section class="border border-black rounded-lg m-5 px-5 py-2 ">
-        <h1 class="text-4xl  text-white text-center mb-6 bg-black rounded-lg">Meilleur film</h1>
+    <section class="border-yellow-400 border-2 rounded-lg m-2 md:m-5 px-3 md:px-5 py-2 bg-white">
+        <h1 class="text-2xl md:text-4xl text-yellow-400 text-center mb-4 md:mb-6 bg-zinc-800 rounded-lg py-2">Meilleur film</h1>
         
-        <div class="flex items-center gap-6">
+        <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6">
             
-            <img id="movie-image" src="" class="w-64 h-96 rounded-lg object-fill cursor-pointer border border-black mb-5" alt="Poster du film">
+            <img id="movie-image" src="" class="w-48 h-72 md:w-64 md:h-96 rounded-lg object-fill cursor-pointer border border-black mb-3 md:mb-5" alt="Poster du film">
             
-            <div class="flex flex-col flex-1 items-center">
-                <h2 id="movie-title" class="text-4xl  text-back mb-4">Chargement...</h2>
-                <p class="text-yellow-400  text-2xl text-center">⭐ <span id="movie-score">/10</span></p>
-                <p id="movie-description" class="text-gray-500">Description...</p>
+            <div class="flex flex-col flex-1 items-center px-2">
+                <h2 id="movie-title" class="text-2xl md:text-4xl text-black mb-3 md:mb-4 text-center">Chargement...</h2>
+                <p class="text-yellow-400 text-xl md:text-2xl text-center">⭐ <span id="movie-score">/10</span></p>
+                <p id="movie-description" class="text-gray-500 text-sm md:text-base text-center mt-2">Description...</p>
             </div>
             
-            <button id="btn-details" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full ">
+            <button id="btn-details" class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-6 md:px-8 py-2 md:py-3 rounded-full text-sm md:text-base">
                 Détails
             </button>     
         </div>
     </section>
 
-    <section class="border border-black rounded-lg m-5 px-5 py-2 ">
-        <h1 class="text-4xl  text-white text-center mb-5 bg-black rounded-lg">Films les mieux noté</h1>
-        <div id="top-rated-movie" class="flex gap-14 px-14 py-5">
+    <section class="border-2 border-yellow-400 rounded-lg m-2 md:m-5 px-3 md:px-5 py-2 bg-white">
+        <h1 class="text-2xl md:text-4xl text-yellow-400 text-center mb-3 md:mb-5 bg-zinc-800 rounded-lg py-2">Films les mieux notés</h1>
+        
+        <div id="top-rated-movie" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-10 px-2 md:px-8 lg:px-14 py-3 md:py-5">
     
-            <div class="top-movie relative w-64 h-96">
+            <div class="top-movie relative w-full aspect-[2/3]">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="movie-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="movie-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 1
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-zinc-800 text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="top-movie relative w-64 h-96">
+            <div class="top-movie relative w-full aspect-[2/3]">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="movie-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="movie-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 2
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="top-movie relative w-64 h-96">
+            <div class="top-movie relative w-full aspect-[2/3]">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="movie-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="movie-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 3
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="top-movie relative w-64 h-96">
+            <div class="top-movie relative w-full aspect-[2/3]">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="movie-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="movie-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 4
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="top-movie relative w-64 h-96">
+            <div class="top-movie relative w-full aspect-[2/3] hidden md:block">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="movie-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="movie-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 5
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-        </div>
-        <div id="top-rated-movie" class="flex gap-14 px-14 py-5">
-    
-            <div class="top-movie relative w-64 h-96">
+            <div class="top-movie relative w-full aspect-[2/3] hidden md:block">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="movie-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="movie-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 6
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="top-movie relative w-64 h-96">
+            <div class="top-movie relative w-full aspect-[2/3] hidden lg:block">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="movie-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="movie-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 7
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="top-movie relative w-64 h-96">
+            <div class="top-movie relative w-full aspect-[2/3] hidden lg:block">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="movie-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="movie-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 8
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
-                        Détails
-                    </button>
-                </div>
-            </div>
-
-            <div class="top-movie relative w-64 h-96">
-                <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="movie-title text-xl text-white w-full ml-4">
-                        Film 9
-                    </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
-                        Détails
-                    </button>
-                </div>
-            </div>
-
-            <div class="top-movie relative w-64 h-96">
-                <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="movie-title text-xl text-white w-full ml-4">
-                        Film 10
-                    </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
@@ -198,158 +142,102 @@
         </div>
     </section>
 
-    <section class="border border-black rounded-lg m-5 px-5 py-2 ">
-        <h1 class="text-4xl  text-white text-center mb-5 bg-black rounded-lg">Films d'action les mieux noté</h1>
-        <div id="top-action-movie" class="flex gap-14 px-14 py-5">
+    <section class="border-yellow-400 border-2 rounded-lg m-2 md:m-5 px-3 md:px-5 py-2 bg-white">
+        <h1 class="text-2xl md:text-4xl text-yellow-400 text-center mb-3 md:mb-5 bg-zinc-800 rounded-lg py-2">Meilleurs films d'action</h1>
+        
+        <div id="top-action-movie" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-10 px-2 md:px-8 lg:px-14 py-3 md:py-5">
     
-            <div class="action-movie relative w-64 h-96">
+            <div class="action-movie relative w-full aspect-[2/3]">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="action-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="action-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 1
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="action-movie relative w-64 h-96">
+            <div class="action-movie relative w-full aspect-[2/3]">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="action-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="action-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 2
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="action-movie relative w-64 h-96">
+            <div class="action-movie relative w-full aspect-[2/3]">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="action-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="action-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 3
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="action-movie relative w-64 h-96">
+            <div class="action-movie relative w-full aspect-[2/3]">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="action-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="action-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 4
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="action-movie relative w-64 h-96">
+            <div class="action-movie relative w-full aspect-[2/3] hidden md:block">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="action-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="action-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 5
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-        </div>
-        <div id="top-action-movie" class="flex gap-14 px-14 py-5">
-    
-            <div class="action-movie relative w-64 h-96">
+            <div class="action-movie relative w-full aspect-[2/3] hidden md:block">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="action-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="action-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 6
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="action-movie relative w-64 h-96">
+            <div class="action-movie relative w-full aspect-[2/3] hidden lg:block">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="action-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="action-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 7
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="action-movie relative w-64 h-96">
+            <div class="action-movie relative w-full aspect-[2/3] hidden lg:block">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="action-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="action-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 8
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
-                        Détails
-                    </button>
-                </div>
-            </div>
-
-            <div class="action-movie relative w-64 h-96">
-                <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="action-title text-xl text-white w-full ml-4">
-                        Film 9
-                    </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
-                        Détails
-                    </button>
-                </div>
-            </div>
-
-            <div class="action-movie relative w-64 h-96">
-                <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="action-title text-xl text-white w-full ml-4">
-                        Film 10
-                    </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
@@ -358,158 +246,102 @@
         </div>
     </section>
 
-    <section class="border border-black rounded-lg m-5 px-5 py-2 ">
-        <h1 class="text-4xl  text-white text-center mb-5 bg-black rounded-lg">Films de comedie les mieux noté</h1>
-        <div id="top-comedy-movie" class="flex gap-14 px-14 py-5">
+    <section class="border-yellow-400 border-2 rounded-lg m-2 md:m-5 px-3 md:px-5 py-2 bg-white">
+        <h1 class="text-2xl md:text-4xl text-yellow-400 text-center mb-3 md:mb-5 bg-zinc-800 rounded-lg py-2">Meilleurs films de comédie</h1>
+        
+        <div id="top-comedy-movie" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-10 px-2 md:px-8 lg:px-14 py-3 md:py-5">
     
-            <div class="comedy-movie relative w-64 h-96">
+            <div class="comedy-movie relative w-full aspect-[2/3]">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="comedy-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="comedy-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 1
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="comedy-movie relative w-64 h-96">
+            <div class="comedy-movie relative w-full aspect-[2/3]">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="comedy-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="comedy-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 2
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="comedy-movie relative w-64 h-96">
+            <div class="comedy-movie relative w-full aspect-[2/3]">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="comedy-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="comedy-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 3
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="comedy-movie relative w-64 h-96">
+            <div class="comedy-movie relative w-full aspect-[2/3]">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="comedy-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="comedy-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 4
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="comedy-movie relative w-64 h-96">
+            <div class="comedy-movie relative w-full aspect-[2/3] hidden md:block">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="comedy-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="comedy-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 5
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-zinc-800 text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-        </div>
-        <div id="top-comedy-movie" class="flex gap-14 px-14 py-5">
-    
-            <div class="comedy-movie relative w-64 h-96">
+            <div class="comedy-movie relative w-full aspect-[2/3] hidden md:block">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="comedy-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="comedy-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 6
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="comedy-movie relative w-64 h-96">
+            <div class="comedy-movie relative w-full aspect-[2/3] hidden lg:block">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="comedy-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="comedy-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 7
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="comedy-movie relative w-64 h-96">
+            <div class="comedy-movie relative w-full aspect-[2/3] hidden lg:block">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="comedy-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="comedy-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 8
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
-                        Détails
-                    </button>
-                </div>
-            </div>
-
-            <div class="comedy-movie relative w-64 h-96">
-                <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="comedy-title text-xl text-white w-full ml-4">
-                        Film 9
-                    </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
-                        Détails
-                    </button>
-                </div>
-            </div>
-
-            <div class="comedy-movie relative w-64 h-96">
-                <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="comedy-title text-xl text-white w-full ml-4">
-                        Film 10
-                    </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
@@ -518,163 +350,107 @@
         </div>
     </section>
 
-    <section class="border border-black rounded-lg m-5 px-5 py-2 ">
-        <div class="flex items-center justify-center mb-5 bg-black rounded-lg p-4">
-            <h1 class="text-4xl text-white mr-4">Autres catégories :</h1>
-            <select id="category-select" class="text-2xl px-4 py-2 rounded-lg bg-gray-700 text-white border-2 border-white cursor-pointer">
-                <option value=""> Choisir </option>
+    <section class="border-yellow-400 border-2 rounded-lg m-2 md:m-5 px-3 md:px-5 py-2 bg-white">
+        <div class="flex flex-col md:flex-row items-center justify-center mb-3 md:mb-5 rounded-lg p-3 md:p-4 bg-zinc-800 gap-3">
+            <h1 class="text-2xl md:text-4xl text-yellow-400">Autres catégories :</h1>
+            <select id="category-select" class="text-lg md:text-2xl px-3 md:px-4 py-2 rounded-lg bg-zinc-800 text-yellow-400 border border-yellow-400 cursor-pointer">
+                <option value="">Choisir</option>
             </select>
         </div>
-        <div id="top-all-movie" class="flex gap-14 px-14 py-5">
+        
+        <div id="top-all-movie" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-10 px-2 md:px-8 lg:px-14 py-3 md:py-5">
     
-            <div class="all-category-movie relative w-64 h-96">
+            <div class="all-category-movie relative w-full aspect-[2/3]">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="all-category-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="all-category-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 1
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="all-category-movie relative w-64 h-96">
+            <div class="all-category-movie relative w-full aspect-[2/3]">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="all-category-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="all-category-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 2
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="all-category-movie relative w-64 h-96">
+            <div class="all-category-movie relative w-full aspect-[2/3]">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="all-category-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="all-category-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 3
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="all-category-movie relative w-64 h-96">
+            <div class="all-category-movie relative w-full aspect-[2/3]">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="all-category-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="all-category-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 4
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="all-category-movie relative w-64 h-96">
+            <div class="all-category-movie relative w-full aspect-[2/3] hidden md:block">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="all-category-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="all-category-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 5
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-        </div>
-        <div id="top-all-movie" class="flex gap-14 px-14 py-5">
-    
-            <div class="all-category-movie relative w-64 h-96">
+            <div class="all-category-movie relative w-full aspect-[2/3] hidden md:block">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="all-category-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="all-category-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 6
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="all-category-movie relative w-64 h-96">
+            <div class="all-category-movie relative w-full aspect-[2/3] hidden lg:block">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="all-category-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="all-category-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 7
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
             </div>
 
-            <div class="all-category-movie relative w-64 h-96">
+            <div class="all-category-movie relative w-full aspect-[2/3] hidden lg:block">
                 <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="all-category-title text-xl text-white w-full ml-4">
+                <div class="absolute top-8 md:top-14 w-full bg-zinc-800 bg-opacity-80 flex-col gap-2 md:gap-3 py-3 md:py-4 rounded-lg flex items-center justify-between">
+                    <h2 class="all-category-title text-sm md:text-xl text-white w-full px-2 md:ml-4">
                         Film 8
                     </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
-                        Détails
-                    </button>
-                </div>
-            </div>
-
-            <div class="all-category-movie relative w-64 h-96">
-                <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="all-category-title text-xl text-white w-full ml-4">
-                        Film 9
-                    </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
-                        Détails
-                    </button>
-                </div>
-            </div>
-
-            <div class="all-category-movie relative w-64 h-96">
-                <img src="" class="w-full h-full object-fill rounded-lg border border-black">
-                <div class="absolute top-14 w-full bg-gray-600 bg-opacity-80 flex-col gap-3 py-4 rounded-lg flex items-center justify-between">
-
-                    <h2 class="all-category-title text-xl text-white w-full ml-4">
-                        Film 10
-                    </h2>
-
-                    <button
-                        class="bg-gray-800 hover:bg-black px-6 py-2 rounded-full text-white ml-32">
+                    <button class="bg-yellow-400 hover:bg-yellow-200 text-zinc-800 px-4 md:px-6 py-1.5 md:py-2 rounded-full text-sm md:text-base">
                         Détails
                     </button>
                 </div>
@@ -683,70 +459,70 @@
         </div>
     </section>
 
-    <div id="modal" class="hidden fixed inset-0 flex bg-black bg-opacity-80 items-center justify-center">
-        <div class="bg-white rounded-lg max-w-4xl w-full mx-4 max-h-screen overflow-y-auto border border-black">
+    <div id="modal" class="hidden fixed inset-0 flex bg-black bg-opacity-80 items-center justify-center p-4">
+        <div class="bg-zinc-800 rounded-lg max-w-4xl w-full max-h-screen overflow-y-auto border border-yellow-400">
             
-            <div class="sticky top-0 bg-black p-4 flex items-center rounded-lg m-2">
-                <h2 id="modal-title" class="absolute left-1/2 -translate-x-1/2 text-3xl  text-white">Titre du film</h2>
-                <button id="close-modal" class="ml-auto text-red-500 text-4xl hover:text-red-800 transition-colors">&times;</button>
+            <div class="sticky top-0 bg-white p-3 md:p-4 flex items-center border-2 border-yellow-400 rounded-lg m-2">
+                <h2 id="modal-title" class="flex-1 text-xl md:text-3xl text-black text-center pr-8">Titre du film</h2>
+                <button id="close-modal" class="text-yellow-400 text-3xl md:text-4xl hover:text-yellow-200 transition-colors">&times;</button>
             </div>
             
-            <div class="px-20 py-5">
-                <div class="flex gap-5">
+            <div class="px-4 md:px-10 lg:px-20 py-3 md:py-5">
+                <div class="flex flex-col md:flex-row gap-4 md:gap-5">
                     
-                    <div class="flex">
-                        <div id="modal-poster" class="w-80 h-full bg-gray-800 rounded-lg flex items-center justify-center object-fill">
+                    <div class="flex justify-center md:justify-start">
+                        <div id="modal-poster" class="w-48 h-72 md:w-80 md:h-auto bg-gray-800 rounded-lg flex items-center justify-center border border-yellow-400">
                             <img id="modal-image" class="w-full h-full object-cover rounded-lg" src="" alt="Poster du film">
                         </div>
                     </div>
                     
-                    <div class="flex-1 text-black p-3 rounded-lg border border-black ">
+                    <div class="flex-1 bg-white text-black p-3 rounded-lg border-2 border-yellow-400 text-sm md:text-base">
                         
                         <div class="mb-3">
-                            <p class="text-yellow-400  text-2xl text-center">⭐ <span id="modal-score">/10</span></p>
+                            <p class="text-yellow-400 text-xl md:text-2xl text-center">⭐ <span id="modal-score">/10</span></p>
                         </div>
                         
-                        <div class="mb-3">
-                            <span class=" text-gray-400">Genre(s) :</span>
-                            <span id="modal-genres" class=" text-black">-</span>
+                        <div class="mb-2 md:mb-3">
+                            <span class="text-zinc-800">Genre(s) :</span>
+                            <span id="modal-genres" class="text-black">-</span>
                         </div>
                         
-                        <div class="mb-3">
-                            <span class=" text-gray-400">Date de sortie :</span>
+                        <div class="mb-2 md:mb-3">
+                            <span class="text-zinc-800">Date de sortie :</span>
                             <span id="modal-date" class="text-black">-</span>
                         </div>
                         
-                        <div class="mb-3">
-                            <span class=" text-gray-400">Réalisateur(s) :</span>
+                        <div class="mb-2 md:mb-3">
+                            <span class="text-zinc-800">Réalisateur(s) :</span>
                             <span id="modal-directors" class="text-black">-</span>
                         </div>
                         
-                        <div class="mb-3">
-                            <span class=" text-gray-400">Acteurs :</span>
+                        <div class="mb-2 md:mb-3">
+                            <span class="text-zinc-800">Acteurs :</span>
                             <span id="modal-actors" class="text-black">-</span>
                         </div>
                         
-                        <div class="mb-3">
-                            <span class=" text-gray-400">Durée :</span>
+                        <div class="mb-2 md:mb-3">
+                            <span class="text-zinc-800">Durée :</span>
                             <span id="modal-duration" class="text-black">-</span>
                         </div>
                         
-                        <div class="mb-3">
-                            <span class=" text-gray-400">Pays d'origine :</span>
+                        <div class="mb-2 md:mb-3">
+                            <span class="text-zinc-800">Pays d'origine :</span>
                             <span id="modal-countries" class="text-black">-</span>
                         </div>
                         
-                        <div class="mb-3">
-                            <span class=" text-gray-400">Box Office :</span>
+                        <div class="mb-2 md:mb-3">
+                            <span class="text-zinc-800">Box Office :</span>
                             <span id="modal-boxoffice" class="text-black">-</span>
                         </div>
                         
                     </div>
                 </div>
                 
-                <div class="mt-6 border border-black rounded-lg p-3">
-                    <h3 class=" text-gray-400 mb-2 ">Résumé :</h3>
-                    <p id="modal-description" class="text-black leading-relaxed">-</p>
+                <div class="mt-4 md:mt-6 bg-white border-2 border-yellow-400 rounded-lg p-3">
+                    <h3 class="text-zinc-00 mb-2 text-sm md:text-base">Résumé :</h3>
+                    <p id="modal-description" class="text-black leading-relaxed text-sm md:text-base">-</p>
                 </div>
                 
             </div>
@@ -757,4 +533,3 @@
 
 </body>
 </html>
-
