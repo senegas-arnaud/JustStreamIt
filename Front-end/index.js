@@ -10,8 +10,9 @@ function SetBaseImage(imgElement, url) {
 
 
 let movies = [];
+let topRatedMovies = []
 
-fetch('http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&page_size=11')
+fetch('http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&page_size=56')
     .then(response => response.json())
     .then(data => {
         movies = data.results;
@@ -44,6 +45,7 @@ function DisplayMovies() {
     document.getElementById('btn-details').addEventListener('click', () => openModal(bestMovie));
     document.getElementById('movie-image').addEventListener('click', () => openModal(bestMovie));
            
+    topRatedMovies = movies.slice(1);
     const top_movies = document.querySelectorAll('.top-movie');
     
     for (let i = 0; i < top_movies.length && i < 10; i++) {
@@ -104,7 +106,7 @@ fetch('http://localhost:8000/api/v1/genres/?page_size=50')
         let count = 0;
                 
         for (let i = 0; i < category.length; i++) {
-            fetch(`http://localhost:8000/api/v1/titles/?genre=${category[i].name}&sort_by=-imdb_score&page_size=11`)
+            fetch(`http://localhost:8000/api/v1/titles/?genre=${category[i].name}&sort_by=-imdb_score&page_size=56`)
                 .then(response => response.json())
                 .then(movieByGenres => {
                     SortMovieGenres[i] = movieByGenres.results;
@@ -186,26 +188,157 @@ function FillCategorySelect(categories) {
 }
         
 function DisplaySelectedCategory(categoryIndex) {
-    const allCategoryMovies = document.querySelectorAll('.all-category-movie');
-            
-    for (let i = 0; i < allCategoryMovies.length && i < 10; i++) {
-        const movie = SortMovieGenres[categoryIndex][i + 1];
-        const allGenres = allCategoryMovies[i];
-                
-        const img = allGenres.querySelector('img');
-        SetBaseImage(img, movie.image_url);
-                
-        const title = allGenres.querySelector('.all-category-title');
-        title.textContent = movie.title;
-                
-        allGenres.addEventListener('click', () => openModal(movie));
-    }
+    if (!SortMovieGenres[categoryIndex]) return;
+
+    allCategoryPage = 1;
+
+    const cardsSelector = '.all-category-movie';
+    const titleSelector = '.all-category-title';
+    const cards = document.querySelectorAll(cardsSelector);
+    const itemsPerPage = cards.length;
+
+    const maxPage = Math.ceil(SortMovieGenres[categoryIndex].length / itemsPerPage);
+
+    DisplayPage(SortMovieGenres[categoryIndex], allCategoryPage, cardsSelector, titleSelector);
+
+    document.getElementById('all-page-info').textContent = `${allCategoryPage}/${maxPage}`;
 }
         
 document.getElementById('category-select').addEventListener('change', function() {
     const selectedIndex = this.value;
-            
+    
     if (selectedIndex !== "") {
+        currentCategoryIndex = parseInt(selectedIndex);
+        allCategoryPage = 1;
         DisplaySelectedCategory(parseInt(selectedIndex));
     }
 });
+
+let topPage = 1;
+let actionPage = 1;
+let comedyPage = 1;
+let allCategoryPage = 1;
+let currentCategoryIndex = -1;
+
+function DisplayPage(movieSelector, pageNumber, cardsSelector, titleSelector) {
+    const cards = document.querySelectorAll(cardsSelector);
+    const itemsPerPage = cards.length;
+    const startIndex = (pageNumber - 1) * itemsPerPage;
+
+    for (let i = 0; i < itemsPerPage; i++) {
+        const movieIndex = startIndex + i;
+        const card = cards[i];
+
+        if (movieIndex < movieSelector.length) {
+            const movie = movieSelector[movieIndex];
+
+            const title = card.querySelector(titleSelector);
+            title.textContent = movie.title;
+
+            const newCard = card.cloneNode(true);
+            card.parentNode.replaceChild(newCard, card);
+
+            const img = newCard.querySelector('img');
+            SetBaseImage(img, movie.image_url);
+
+            newCard.addEventListener('click', () => openModal(movie));
+        } else {
+            const img = card.querySelector('img');
+            img.src = '';
+            const title = card.querySelector(titleSelector);
+            title.textContent = '';
+            
+            const newCard = card.cloneNode(true);
+            card.parentNode.replaceChild(newCard, card);
+        }
+    }
+}
+
+document.getElementById('top-next').addEventListener('click', () => {
+    const itemsPerPage = document.querySelectorAll('.top-movie').length;
+    const maxPage = Math.ceil(topRatedMovies.length / itemsPerPage);
+    if (topPage < maxPage) {
+        topPage++;
+        DisplayPage(topRatedMovies, topPage, '.top-movie', '.movie-title');
+        document.getElementById('top-page-info').textContent = `${topPage}/${maxPage}`;
+    }
+});
+
+document.getElementById('top-prev').addEventListener('click', () => {
+    const itemsPerPage = document.querySelectorAll('.top-movie').length;
+    const maxPage = Math.ceil(topRatedMovies.length / itemsPerPage);
+    if (topPage > 1) {
+        topPage--;
+        DisplayPage(topRatedMovies, topPage, '.top-movie', '.movie-title');
+        document.getElementById('top-page-info').textContent = `${topPage}/${maxPage}`;
+    }
+});
+
+document.getElementById('action-next').addEventListener('click', () => {
+    const itemsPerPage = document.querySelectorAll('.action-movie').length;
+    const maxPage = Math.ceil((SortMovieGenres[0].length) / itemsPerPage);
+    
+    if (actionPage < maxPage) {
+        actionPage++;
+        DisplayPage(SortMovieGenres[0], actionPage, '.action-movie', '.action-title');
+        document.getElementById('action-page-info').textContent = `${actionPage}/${maxPage}`;
+    }
+});
+
+document.getElementById('action-prev').addEventListener('click', () => {
+    const itemsPerPage = document.querySelectorAll('.action-movie').length;
+    const maxPage = Math.ceil((SortMovieGenres[0].length) / itemsPerPage);
+    if (actionPage > 1) {
+        actionPage--;
+        DisplayPage(SortMovieGenres[0], actionPage, '.action-movie', '.action-title');
+        document.getElementById('action-page-info').textContent = `${actionPage}/${maxPage}`;
+    }
+});
+
+document.getElementById('comedy-next').addEventListener('click', () => {
+    const itemsPerPage = document.querySelectorAll('.comedy-movie').length;
+    const maxPage = Math.ceil((SortMovieGenres[5].length) / itemsPerPage);
+    
+    if (comedyPage < maxPage) {
+        comedyPage++;
+        DisplayPage(SortMovieGenres[5], comedyPage, '.comedy-movie', '.comedy-title');
+        document.getElementById('comedy-page-info').textContent = `${comedyPage}/${maxPage}`;
+    }
+});
+
+document.getElementById('comedy-prev').addEventListener('click', () => {
+    const itemsPerPage = document.querySelectorAll('.comedy-movie').length;
+    const maxPage = Math.ceil((SortMovieGenres[5].length) / itemsPerPage);
+    if (comedyPage > 1) {
+        comedyPage--;
+        DisplayPage(SortMovieGenres[5], comedyPage, '.comedy-movie', '.comedy-title');
+        document.getElementById('comedy-page-info').textContent = `${comedyPage}/${maxPage}`;
+    }
+});
+
+document.getElementById('all-next').addEventListener('click', () => {
+    if (currentCategoryIndex !== -1) {
+        const itemsPerPage = document.querySelectorAll('.all-category-movie').length;
+        const maxPage = Math.ceil((SortMovieGenres[currentCategoryIndex].length) / itemsPerPage);
+        
+        if (allCategoryPage < maxPage) {
+            allCategoryPage++;
+            DisplayPage(SortMovieGenres[currentCategoryIndex], allCategoryPage, '.all-category-movie', '.all-category-title');
+            document.getElementById('all-page-info').textContent = `${allCategoryPage}/${maxPage}`;
+        }
+    }
+});
+
+document.getElementById('all-prev').addEventListener('click', () => {
+    if (allCategoryPage > 1 && currentCategoryIndex !== -1) {
+        const itemsPerPage = document.querySelectorAll('.all-category-movie').length;
+        const maxPage = Math.ceil((SortMovieGenres[currentCategoryIndex].length) / itemsPerPage);
+
+        if (allCategoryPage > 1) {
+            allCategoryPage--;
+            DisplayPage(SortMovieGenres[currentCategoryIndex], allCategoryPage, '.all-category-movie', '.all-category-title');
+            document.getElementById('all-page-info').textContent = `${allCategoryPage}/${maxPage}`;
+        }
+    }
+});
+
