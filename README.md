@@ -61,6 +61,7 @@ Chaque film peut être consulté en détail via une fenêtre modale affichant :
 git clone https://github.com/votre-username/JustStreamIt.git
 cd JustStreamIt
 ```
+- Recréer et activer l'environnement virtuel
 - Installer l'API depuis : https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR
 - Installer les dépendances :
 ```bash
