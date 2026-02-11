@@ -79,9 +79,17 @@ function openModal(movie) {
     document.getElementById('modal-actors').textContent = movie.actors;
     document.getElementById('modal-duration').textContent = `${movie.duration} minutes`;
     document.getElementById('modal-countries').textContent = movie.countries;
-    document.getElementById('modal-boxoffice').textContent = `${movie.worldwide_gross_income} $`;
     document.getElementById('modal-description').textContent = movie.long_description;
-            
+       
+    // Hide box office if data not available
+    const boxofficeContainer = document.getElementById('modal-boxoffice').parentElement;
+    if (movie.worldwide_gross_income && movie.worldwide_gross_income !== 'null') {
+        boxofficeContainer.classList.remove('hidden');
+        document.getElementById('modal-boxoffice').textContent = `${movie.worldwide_gross_income} $`;
+    } else {
+        boxofficeContainer.classList.add('hidden');
+    }
+
     document.getElementById('modal').classList.remove('hidden');
 }
 
@@ -207,6 +215,11 @@ function FillCategorySelect(categories) {
 // Display movies for selected category
 function DisplaySelectedCategory(categoryIndex) {
     if (!SortMovieGenres[categoryIndex]) return;
+
+    // Display movie and buttons, hide placeholder
+    document.getElementById('category-placeholder').classList.add('hidden');
+    document.getElementById('top-all-movie').classList.remove('hidden');
+    document.getElementById('nav-button').classList.remove('hidden');
 
     allCategoryPage = 1;
 
